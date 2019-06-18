@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="root">
+
+        <input type="text" v-model="newName">
+        <button @click="addName">Add name</button>
+
+        <ul>
+            <li v-for="name in names">
+                {{ name }}
+            </li>
+            <!-- OR -->
+            <!-- <li v-for="name in names" v-text="name"></li> -->
+        </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+
+        new Vue({
+
+            el : '#root',
+            
+            data: {
+
+                newName : '',
+                
+                names: ['Olaegbe Samuel', 'Daniel', 'Paul', 'Segun', 'Lammie']
+            
+            },
+
+            methods: {
+                addName(){
+                    this.names.push(this.newName);
+
+                    this.newName = '';
+                }
+            },
+
+            mounted() {
+                
+            },
+        
+        })
+    </script>
+
+</body>
+</html>
+
+<!-- Event listeners may be created by using `v-on:eventName="JS Code"` Or by using @eventName="JS Code"--> 

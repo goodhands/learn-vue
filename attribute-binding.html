@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+
+    <style>
+        .is-loading{
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        
+        <button :title="title" :class="{ 'is-loading': isLoading }" @click="toggleClass">
+            Toggle me
+        </button>
+        <!-- OR -->
+        <!-- <button v-bind:title="title">Hover over me</button> -->
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+
+        new Vue({
+
+            el : '#root',
+            
+            data: {
+               title: "Now the title is being set with JS", 
+               isLoading: false,
+            },
+
+            methods: {
+                toggleClass(){
+                    this.isLoading = true;
+                }
+            },
+        
+        })
+    </script>
+</body>
+</html>
